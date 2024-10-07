@@ -20,6 +20,11 @@ module.exports = {
         padding: "padding-top padding-right padding-bottom padding-left",
       },
       colors: {
+        text: "#040316",
+        background: "#bcddf5",
+        primary: "#ffc266",
+        secondary: "#3d005c",
+        accent: "#ffffff",
         grey: {
           0: "#FFFFFF",
           5: "#F9FAFB",

@@ -8,6 +8,7 @@ import { Region } from "@medusajs/medusa"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "../thumbnail"
 import PreviewPrice from "./price"
+import { tilt_warp } from "app/fonts"
 
 export default async function ProductPreview({
   productPreview,
@@ -43,9 +44,11 @@ export default async function ProductPreview({
           size="full"
           isFeatured={isFeatured}
         />
-        <div className="flex txt-compact-medium mt-4 justify-between">
-          <Text className="text-ui-fg-subtle">{productPreview.title}</Text>
-          <div className="flex items-center gap-x-2">
+        <div className="flex txt-compact-medium mt-4 justify-between flex-col md:flex-row">
+          <Text className={`text-black text-lg ${tilt_warp.className}`}>
+            {productPreview.title}
+          </Text>
+          <div className={`flex items-center gap-x-2`}>
             {cheapestPrice && <PreviewPrice price={cheapestPrice} />}
           </div>
         </div>

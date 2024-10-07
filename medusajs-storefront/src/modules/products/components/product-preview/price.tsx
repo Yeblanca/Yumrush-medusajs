@@ -1,6 +1,7 @@
 import { Text, clx } from "@medusajs/ui"
 
 import { PriceType } from "../product-actions"
+import { dm_sans, tilt_warp } from "app/fonts"
 
 export default async function PreviewPrice({ price }: { price: PriceType }) {
   return (
@@ -11,7 +12,7 @@ export default async function PreviewPrice({ price }: { price: PriceType }) {
         </Text>
       )}
       <Text
-        className={clx("text-ui-fg-muted", {
+        className={clx(`text-black `, {
           "text-ui-fg-interactive": price.price_type === "sale",
         })}
       >
