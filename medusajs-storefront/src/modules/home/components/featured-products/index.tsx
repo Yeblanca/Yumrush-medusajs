@@ -10,9 +10,14 @@ export default async function FeaturedProducts({
   collections: ProductCollectionWithPreviews[]
   region: Region
 }) {
-  return collections.map((collection) => (
-    <li key={collection.id}>
-      <ProductRail collection={collection} region={region} />
-    </li>
-  ))
+  return collections.map((collection) => {
+    if (collection.products.length > 0) {
+      return (
+        <li key={collection.id}>
+          <ProductRail collection={collection} region={region} />
+        </li>
+      )
+    }
+    return null
+  })
 }
