@@ -4,7 +4,7 @@ import feastables from "../../public/FEASTABLES.png"
 
 const ImageHero = () => {
   return (
-    <div className="flex flex-col md:flex-row md:mb-12">
+    <div className="flex flex-col md:flex-row md:mb-12 pt-12">
       <div className="md:w-1/2">
         <div className="text-4xl xl:text-5xl leading normal font-semibold py-8 font-fredoka">
           Welcome to <br />
