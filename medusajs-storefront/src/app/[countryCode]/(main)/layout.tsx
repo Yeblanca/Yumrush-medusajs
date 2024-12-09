@@ -14,9 +14,9 @@ export const metadata: Metadata = {
 export default async function PageLayout(props: { children: React.ReactNode }) {
   return (
     <>
-      {/* <Nav /> */}
+      <Nav />
       <Navbar />
-      {props.children}
+      <main className="pt-[64px]">{props.children}</main>
       <Footer />
     </>
   )

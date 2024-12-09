@@ -7,6 +7,7 @@ import { Button, Input } from "@medusajs/ui"
 import logo from "../../../public/logo.png"
 import Image from "next/image"
 import SideMenu from "@modules/layout/components/side-menu"
+import CartDropdown from "@modules/layout/components/cart-dropdown"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -81,13 +82,12 @@ export function Navbar() {
                   <Search className="h-5 w-5 text-gray-400" />
                 </div>
               </div>
+              <CartDropdown cart={null} />
               <Button variant="ghost" className="ml-4 relative">
                 <ShoppingCart className="h-6 w-6" />
-                {cartItems > 0 && (
-                  <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                    {cartItems}
-                  </span>
-                )}
+                <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                  6
+                </span>
               </Button>
             </div>
           </div>
@@ -104,40 +104,6 @@ export function Navbar() {
           </div>
         </div>
       </div>
-
-      {isMenuOpen && (
-        <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.href}
-                className="text-pink-800 hover:bg-pink-200 block px-3 py-2 rounded-md text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-          <div className="pt-4 pb-3 border-t border-pink-200">
-            <div className="flex items-center px-5">
-              <Input
-                type="text"
-                placeholder="Search candies..."
-                className="w-full"
-              />
-              <Button variant="ghost" className="ml-4 relative">
-                <ShoppingCart className="h-6 w-6" />
-                {cartItems > 0 && (
-                  <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
-                    {cartItems}
-                  </span>
-                )}
-              </Button>
-            </div>
-          </div>
-        </div>
-      )}
     </nav>
   )
 }
