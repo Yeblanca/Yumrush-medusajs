@@ -28,6 +28,7 @@
     "@medusajs/modules-sdk": "^1.12.3",
     "@medusajs/pricing": "^0.1.4",
     "@medusajs/product": "^0.3.4",
+    "@medusajs/types": "^2.1.0",
     "@medusajs/ui": "^2.2.0",
     "@meilisearch/instant-meilisearch": "^0.7.1",
     "@paypal/paypal-js": "^5.0.6",
