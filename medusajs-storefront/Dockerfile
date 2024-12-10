@@ -13,8 +13,9 @@ COPY . .
 
 # Specify the variable you need
 ARG NEXT_PUBLIC_BASE_URL
+ARG NEXT_PUBLIC_MEDUSA_BACKEND_URL
+ARG NIXPACKS_NODE_VERSION
 # Use the varible
-RUN echo $NEXT_PUBLIC_BASE_URL
 # Establece las variables de entorno (opcional si ya están configuradas en Railway)
 # Estas líneas no son necesarias si las variables de entorno ya están configuradas en Railway
 # y son pasadas automáticamente al contenedor, pero las puedes dejar para mayor claridad.
