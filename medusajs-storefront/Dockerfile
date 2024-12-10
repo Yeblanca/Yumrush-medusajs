@@ -9,14 +9,19 @@ COPY . .
 
 # Copia el archivo .env al contenedor (si estás usando un archivo .env)
 # Si no lo estás usando, puedes omitir esta línea.
-# COPY .env .env
+COPY .env .env
 
+# Specify the variable you need
+ARG NEXT_PUBLIC_BASE_URL
+# Use the varible
+RUN echo $NEXT_PUBLIC_BASE_URL
 # Establece las variables de entorno (opcional si ya están configuradas en Railway)
 # Estas líneas no son necesarias si las variables de entorno ya están configuradas en Railway
 # y son pasadas automáticamente al contenedor, pero las puedes dejar para mayor claridad.
 ENV NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL}
 ENV NEXT_PUBLIC_MEDUSA_BACKEND_URL=${NEXT_PUBLIC_MEDUSA_BACKEND_URL}
 ENV NIXPACKS_NODE_VERSION=${NIXPACKS_NODE_VERSION}
+
 
 # Instala las dependencias usando Yarn
 RUN yarn install --check-cache --ignore-engines
