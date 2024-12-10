@@ -4,10 +4,13 @@ import { createContext, useContext, useEffect, useState } from "react"
 import { HttpTypes } from "@medusajs/types"
 import { useRegion } from "./region-context"
 import { retrieveCart } from "@modules/cart/actions"
+import { Cart } from "@medusajs/medusa"
 
 type CartContextType = {
-  cart?: HttpTypes.StoreCart
-  setCart: React.Dispatch<React.SetStateAction<HttpTypes.StoreCart | undefined>>
+  cart?: Omit<Cart, "beforeInsert" | "afterLoad"> | null
+  setCart: React.Dispatch<
+    React.SetStateAction<Omit<Cart, "beforeInsert" | "afterLoad"> | null>
+  > // Aquí
   refreshCart: () => void
 }
 
@@ -18,7 +21,10 @@ type CartProviderProps = {
 }
 
 export const CartProvider = ({ children }: CartProviderProps) => {
-  const [cart, setCart] = useState<HttpTypes.StoreCart>()
+  const [cart, setCart] = useState<Omit<
+    Cart,
+    "beforeInsert" | "afterLoad"
+  > | null>(null)
   const { region } = useRegion()
   const cartFetch = async () => {
     const cart = await retrieveCart()
@@ -26,7 +32,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
   }
 
   useEffect(() => {
-    if (cart || !region) {
+    if (cart !== null || !region) {
       return
     }
 
@@ -37,7 +43,7 @@ export const CartProvider = ({ children }: CartProviderProps) => {
 
   const refreshCart = () => {
     localStorage.removeItem("cart_id")
-    setCart(undefined)
+    setCart(null)
     cartFetch()
   }
 
