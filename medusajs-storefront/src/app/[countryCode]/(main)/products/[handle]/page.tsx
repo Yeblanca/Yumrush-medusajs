@@ -19,7 +19,11 @@ type Props = {
 
 export async function generateStaticParams() {
   const countryCodes = await listRegions().then((regions) =>
-    regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
+    regions
+      ?.map((r: { countries: any[] }) =>
+        r.countries.map((c: { iso_2: any }) => c.iso_2)
+      )
+      .flat()
   )
 
   if (!countryCodes) {
@@ -27,16 +31,16 @@ export async function generateStaticParams() {
   }
 
   const products = await Promise.all(
-    countryCodes.map((countryCode) => {
+    countryCodes.map((countryCode: any) => {
       return getProductsList({ countryCode })
     })
   ).then((responses) =>
-    responses.map(({ response }) => response.products).flat()
+    responses.map(({ response }: any) => response.products).flat()
   )
 
   const staticParams = countryCodes
-    ?.map((countryCode) =>
-      products.map((product) => ({
+    ?.map((countryCode: any) =>
+      products.map((product: { handle: any }) => ({
         countryCode,
         handle: product.handle,
       }))

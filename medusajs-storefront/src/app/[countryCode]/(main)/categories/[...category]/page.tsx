@@ -21,13 +21,17 @@ export async function generateStaticParams() {
   }
 
   const countryCodes = await listRegions().then((regions) =>
-    regions?.map((r) => r.countries.map((c) => c.iso_2)).flat()
+    regions
+      ?.map((r: { countries: { iso_2: any }[] }) =>
+        r.countries.map((c: { iso_2: any }) => c.iso_2)
+      )
+      .flat()
   )
 
   const categoryHandles = product_categories.map((category) => category.handle)
 
   const staticParams = countryCodes
-    ?.map((countryCode) =>
+    ?.map((countryCode: any) =>
       categoryHandles.map((handle) => ({
         countryCode,
         category: [handle],

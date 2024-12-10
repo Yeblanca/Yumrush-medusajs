@@ -69,11 +69,6 @@ export function Navbar() {
             <Link href="/">
               <Image src={logo} alt="logo" height={38} width={98} priority />
             </Link>
-            {/* <Link href="/" className="flex-shrink-0">
-              <span className="text-2xl font-bold text-pink-600">
-                🍭 Sweet Treats
-              </span>
-            </Link> */}
           </div>
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
