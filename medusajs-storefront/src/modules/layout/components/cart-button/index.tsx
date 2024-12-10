@@ -6,7 +6,6 @@ import CartDropdown from "../cart-dropdown"
 
 const fetchCart = async () => {
   const cart = await retrieveCart()
-  console.log(cart)
 
   if (cart?.items.length) {
     const enrichedItems = await enrichLineItems(cart?.items, cart?.region_id)

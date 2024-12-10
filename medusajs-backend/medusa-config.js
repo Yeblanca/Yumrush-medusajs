@@ -44,10 +44,6 @@ const cloudinaryConfigured =
   CLOUDINARY_API_SECRET;
 
 const ADMIN_APP_PORT = process.env.PORT || 7001;
-// console.log('-----------------------------------------------');
-// console.log(process.env.NODE_ENV);
-
-// console.log(DATABASE_URL);
 
 const fileServicePlugin = cloudinaryConfigured
   ? {

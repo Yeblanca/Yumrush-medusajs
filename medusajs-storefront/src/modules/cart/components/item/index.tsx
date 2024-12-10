@@ -14,6 +14,7 @@ import Spinner from "@modules/common/icons/spinner"
 import { useState } from "react"
 import ErrorMessage from "@modules/checkout/components/error-message"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
+import { useCart } from "@lib/context/cart-context"
 
 type ItemProps = {
   item: Omit<LineItem, "beforeInsert">
@@ -24,6 +25,7 @@ type ItemProps = {
 const Item = ({ item, region, type = "full" }: ItemProps) => {
   const [updating, setUpdating] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const { refreshCart } = useCart()
 
   const { handle } = item.variant.product
 
@@ -40,6 +42,7 @@ const Item = ({ item, region, type = "full" }: ItemProps) => {
       })
       .finally(() => {
         setUpdating(false)
+        refreshCart()
       })
 
     message && setError(message)
