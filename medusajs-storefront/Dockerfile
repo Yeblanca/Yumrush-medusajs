@@ -9,7 +9,7 @@ COPY . .
 
 # Copia el archivo .env al contenedor (si estás usando un archivo .env)
 # Si no lo estás usando, puedes omitir esta línea.
-COPY .env .env
+# COPY .env .env
 
 # Specify the variable you need
 ARG NEXT_PUBLIC_BASE_URL
