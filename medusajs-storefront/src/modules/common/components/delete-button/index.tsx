@@ -3,6 +3,7 @@ import { clx } from "@medusajs/ui"
 import { useState } from "react"
 
 import { deleteLineItem } from "@modules/cart/actions"
+import { useCart } from "@lib/context/cart-context"
 
 const DeleteButton = ({
   id,
@@ -14,12 +15,14 @@ const DeleteButton = ({
   className?: string
 }) => {
   const [isDeleting, setIsDeleting] = useState(false)
+  const { refreshCart } = useCart()
 
   const handleDelete = async (id: string) => {
     setIsDeleting(true)
     await deleteLineItem(id).catch((err) => {
       setIsDeleting(false)
     })
+    refreshCart()
   }
 
   return (

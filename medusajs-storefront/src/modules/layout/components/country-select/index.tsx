@@ -31,6 +31,7 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
   const options: CountryOption[] | undefined = useMemo(() => {
     return regions
       ?.map((r) => {
+        console.log(r)
         return r.countries.map((c) => ({
           country: c.iso_2,
           region: r.id,
@@ -40,6 +41,9 @@ const CountrySelect = ({ toggleState, regions }: CountrySelectProps) => {
       .flat()
       .sort((a, b) => a.label.localeCompare(b.label))
   }, [regions])
+
+  console.log("estas son las opciones", options)
+  console.log("estas son las regiones", regions)
 
   useEffect(() => {
     if (countryCode) {

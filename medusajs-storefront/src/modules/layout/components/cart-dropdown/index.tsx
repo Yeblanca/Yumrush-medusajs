@@ -12,6 +12,7 @@ import LineItemOptions from "@modules/common/components/line-item-options"
 import LineItemPrice from "@modules/common/components/line-item-price"
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import Thumbnail from "@modules/products/components/thumbnail"
+import { ShoppingCart } from "lucide-react"
 
 const CartDropdown = ({
   cart: cartState,
@@ -77,14 +78,23 @@ const CartDropdown = ({
       onMouseLeave={close}
     >
       <Popover className="relative h-full">
-        <Popover.Button className="h-full">
-          <LocalizedClientLink
-            className="hover:text-ui-fg-base"
-            href="/cart"
-          >{`Cart (${totalItems})`}</LocalizedClientLink>
+        <Popover.Button className="ml-4 relative">
+          <LocalizedClientLink className="hover:text-ui-fg-base" href="/cart">
+            <ShoppingCart className="h-6 w-6" />
+            {totalItems > 0 && (
+              <span className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+                {totalItems}
+              </span>
+            )}
+          </LocalizedClientLink>
         </Popover.Button>
+        {/* <Popover.Button className="h-full">
+          <LocalizedClientLink className="hover:text-ui-fg-base" href="/cart">
+            {`Cart (${totalItems})`}
+          </LocalizedClientLink>
+        </Popover.Button> */}
         <Transition
-          show={cartDropdownOpen}
+          show={true}
           as={Fragment}
           enter="transition ease-out duration-200"
           enterFrom="opacity-0 translate-y-1"
@@ -95,7 +105,7 @@ const CartDropdown = ({
         >
           <Popover.Panel
             static
-            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[420px] text-ui-fg-base"
+            className="hidden small:block absolute top-[calc(100%+1px)] right-0 bg-white border-x border-b border-gray-200 w-[450px] text-ui-fg-base"
           >
             <div className="p-4 flex items-center justify-center">
               <h3 className="text-large-semi">Cart</h3>

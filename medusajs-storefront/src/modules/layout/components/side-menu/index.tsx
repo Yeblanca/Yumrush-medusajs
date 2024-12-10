@@ -8,6 +8,7 @@ import { Fragment } from "react"
 
 import LocalizedClientLink from "@modules/common/components/localized-client-link"
 import CountrySelect from "../country-select"
+import { Menu } from "lucide-react"
 
 const SideMenuItems = {
   Home: "/",
@@ -28,7 +29,8 @@ const SideMenu = ({ regions }: { regions: Region[] | null }) => {
             <>
               <div className="relative flex h-full">
                 <Popover.Button className="relative h-full flex items-center transition-all ease-out duration-200 focus:outline-none hover:text-ui-fg-base">
-                  Menu
+                  <Menu className="block h-6 w-6" aria-hidden="true" />
+                  {/* Menu */}
                 </Popover.Button>
               </div>
 
