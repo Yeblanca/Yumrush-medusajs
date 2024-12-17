@@ -1,5 +1,4 @@
 const path = require("path")
-
 const {
   default: flattenColorPalette,
 } = require("tailwindcss/lib/util/flattenColorPalette")
@@ -25,23 +24,70 @@ module.exports = {
         padding: "padding-top padding-right padding-bottom padding-left",
       },
       colors: {
-        text: "#040316",
-        background: "#bcddf5",
-        primary: "#ffc266",
-        secondary: "#3d005c",
-        accent: "#ffffff",
-        grey: {
-          0: "#FFFFFF",
-          5: "#F9FAFB",
-          10: "#F3F4F6",
-          20: "#E5E7EB",
-          30: "#D1D5DB",
-          40: "#9CA3AF",
-          50: "#6B7280",
-          60: "#4B5563",
-          70: "#374151",
-          80: "#1F2937",
-          90: "#111827",
+        neutral: {
+          50: "#0d0d0d",
+          100: "#1a1a1a",
+          200: "#333333",
+          300: "#4d4d4d",
+          400: "#666666",
+          500: "#808080",
+          600: "#999999",
+          700: "#b3b3b3",
+          800: "#cccccc",
+          900: "#e6e6e6",
+          950: "#f2f2f2",
+        },
+        background: {
+          50: "#0c0c0e",
+          100: "#17171c",
+          200: "#2e2e38",
+          300: "#464653",
+          400: "#5d5d6f",
+          500: "#74748b",
+          600: "#9090a2",
+          700: "#acacb9",
+          800: "#c7c7d1",
+          900: "#e3e3e8",
+          950: "#f1f1f3",
+        },
+        primary: {
+          50: "#19000c",
+          100: "#320118",
+          200: "#650130",
+          300: "#970248",
+          400: "#ca025f",
+          500: "#fc0377",
+          600: "#fd3592",
+          700: "#fd68ae",
+          800: "#fe9ac9",
+          900: "#fecde4",
+          950: "#ffe6f1",
+        },
+        secondary: {
+          50: "#00141a",
+          100: "#002833",
+          200: "#005066",
+          300: "#007899",
+          400: "#00a0cc",
+          500: "#00c8ff",
+          600: "#33d3ff",
+          700: "#66deff",
+          800: "#99e9ff",
+          900: "#ccf4ff",
+          950: "#e5f9ff",
+        },
+        accent: {
+          50: "#0b1504",
+          100: "#162a09",
+          200: "#2c5412",
+          300: "#437e1b",
+          400: "#59a824",
+          500: "#6fd22d",
+          600: "#8cdb57",
+          700: "#a9e481",
+          800: "#c5edab",
+          900: "#e2f6d5",
+          950: "#f1fbea",
         },
       },
       borderRadius: {
@@ -68,16 +114,12 @@ module.exports = {
         "3xl": "2rem",
       },
       fontFamily: {
-        sans: [
-          "Inter",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Helvetica Neue",
-          "Ubuntu",
-          "sans-serif",
-        ],
+        heading: ["var(--font-tilt-warp)", "cursive"], // Para los headings
+        body: ["var(--font-dm-sans)", "sans-serif"], // Para el cuerpo
+      },
+      fontWeight: {
+        normal: "400",
+        bold: "700",
       },
       keyframes: {
         ring: {
@@ -170,7 +212,7 @@ module.exports = {
   plugins: [require("tailwindcss-radix")(), addVariablesForColors],
 }
 
-// This plugin adds each Tailwind color as a global CSS variable, e.g. var(--gray-200).
+// Función para agregar variables CSS para cada color
 function addVariablesForColors({ addBase, theme }: any) {
   let allColors = flattenColorPalette(theme("colors"))
   let newVars = Object.fromEntries(
