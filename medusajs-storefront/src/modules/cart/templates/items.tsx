@@ -11,7 +11,7 @@ type ItemsTemplateProps = {
 
 const ItemsTemplate = ({ items, region }: ItemsTemplateProps) => {
   return (
-    <div>
+    <div className="overflow-scroll">
       <div className="pb-3 flex items-center">
         <Heading className="text-[2rem] leading-[2.75rem] font-heading">
           Cart
