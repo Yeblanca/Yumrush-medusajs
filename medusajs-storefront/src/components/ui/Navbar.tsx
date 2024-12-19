@@ -58,7 +58,7 @@ export function Navbar() {
 
   return (
     <nav
-      className={`z-50 bg-pink-100 fixed w-full transition-transform duration-300 ease-in-out ${
+      className={`z-50 bg-primary-900  fixed w-full transition-transform duration-300 ease-in-out ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}
     >
