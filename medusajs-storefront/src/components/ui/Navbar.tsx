@@ -67,7 +67,7 @@ export function Navbar() {
           <div className="flex items-center">
             🍭
             <Link href="/">
-              <Image src={logo} alt="logo" height={38} width={98} priority />
+              <Image src={logo} alt="logo" height={38} priority />
             </Link>
           </div>
           <div className="hidden md:block">

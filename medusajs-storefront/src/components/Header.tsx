@@ -1,16 +1,6 @@
-import React, { useState } from "react"
-import Drawer from "./ui/Drawer"
-import BurgerMenu from "./ui/BurgerMenu"
+import React from "react"
 import ImageHero from "./ImageHero"
-import Image from "next/image"
-import Link from "next/link"
-import { Hero } from "./Hero"
 import headerImage from "../../public/header.png"
-import bagIcon from "../../public/bag-icon.svg"
-import hearthIcon from "../../public/hearth-icon.svg"
-import searchIcon from "../../public/search-icon.svg"
-import userIcon from "../../public/user-icon.svg"
-import logo from "../../public/logo.png"
 
 const HeaderMain = () => {
   return (

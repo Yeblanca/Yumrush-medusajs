@@ -1,10 +1,8 @@
 import { Metadata } from "next"
-
-import Footer from "@modules/layout/templates/footer"
 import { Navbar } from "components/ui/Navbar"
 import { RegionProvider } from "@lib/context/region-context"
 import { CartProvider } from "@lib/context/cart-context"
-// import Navbar from "components/ui/Navbar"
+import { Footer } from "components/ui/Footer"
 
 const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL || "https://localhost:8000"
 
