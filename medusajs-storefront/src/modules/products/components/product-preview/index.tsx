@@ -40,39 +40,40 @@ export default async function ProductPreview({
   })
 
   return (
-    <LocalizedClientLink
-      href={`/products/${productPreview.handle}`}
-      className="group"
-    >
-      <div className="h-full flex flex-col items-center justify-between">
+    <div className="h-full flex flex-col justify-between">
+      <LocalizedClientLink
+        href={`/products/${productPreview.handle}`}
+        className="group h-full w-full flex flex-col items-center"
+      >
         <Thumbnail
           thumbnail={productPreview.thumbnail}
           size="full"
           isFeatured={isFeatured}
         />
-        <div className="relative z-10 flex flex-col">
-          <div className="flex flex-col mb-2 mt-2">
-            <Text className={`text-black text-lg ${tilt_warp.className}`}>
-              {productPreview.title}
-            </Text>
+        <div className="relative z-10 flex flex-col mb-2 mt-2 items-end grow w-full">
+          <Text
+            className={`text-black text-lg text-left ${tilt_warp.className} line-clamp-2 min-h-[3rem]`}
+          >
+            {productPreview.title}
+          </Text>
+          <div className="flex text-ui-fg-base justify-end mt-1">
             <ProductPrice
               product={pricedProduct}
               variant={pricedProduct.variants[0]}
               region={region}
             />
           </div>
-          <Suspense
-            fallback={
-              <CustomProductActions product={pricedProduct} region={region} />
-            }
-          >
-            <CustomProductActionsWrapper
-              id={productPreview.id}
-              region={region}
-            />
-          </Suspense>
+          <div className="grow"></div>
         </div>
-      </div>
-    </LocalizedClientLink>
+      </LocalizedClientLink>
+
+      <Suspense
+        fallback={
+          <CustomProductActions product={pricedProduct} region={region} />
+        }
+      >
+        <CustomProductActionsWrapper id={productPreview.id} region={region} />
+      </Suspense>
+    </div>
   )
 }
