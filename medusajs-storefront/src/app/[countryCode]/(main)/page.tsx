@@ -21,7 +21,11 @@ const getCollectionsWithProducts = cache(
   async (
     countryCode: string
   ): Promise<ProductCollectionWithPreviews[] | null> => {
-    const { collections } = await getCollectionsList(0, 3)
+    // Get the first 3 collections
+    // const { collections } = await getCollectionsList(0, 3)
+
+    // Get all collections
+    const { collections } = await getCollectionsList()
 
     if (!collections) {
       return null
@@ -64,6 +68,7 @@ export default async function Home({
   params: { countryCode: string }
 }) {
   const collections = await getCollectionsWithProducts(countryCode)
+  console.log(collections)
   const region = await getRegion(countryCode)
 
   if (!collections || !region) {
