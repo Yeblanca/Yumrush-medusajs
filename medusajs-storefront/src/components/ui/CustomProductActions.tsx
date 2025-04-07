@@ -83,9 +83,14 @@ export default function CustomProductActions({
     return variants.find((v) => v.id === variantId)
   }, [options, variantRecord, variants])
 
-  // if product only has one variant, then select it
   useEffect(() => {
-    if (variants.length === 1 && variants[0].id) {
+    // if product only has one variant, then select it
+    // if (variants.length === 1 && variants[0].id) {
+    //   setOptions(variantRecord[variants[0].id])
+    // }
+
+    // Select first variant by default
+    if (variants[0]?.id) {
       setOptions(variantRecord[variants[0].id])
     }
   }, [variants, variantRecord])
@@ -129,10 +134,10 @@ export default function CustomProductActions({
 
   return (
     <>
-      <div ref={actionsRef}>
+      <div className="w-full" ref={actionsRef}>
         <div>
           {product.variants.length > 1 && (
-            <div className="flex flex-row gap-y-4">
+            <div className="flex flex-col gap-y-4">
               {(product.options || []).map((option) => {
                 return (
                   <div key={option.id}>
@@ -157,7 +162,7 @@ export default function CustomProductActions({
             onClick={handleAddToCart}
             disabled={!inStock || !variant}
             variant="primary"
-            className="h-10 w-full"
+            className="h-10 w-full rounded-full bg-primary-500 hover:bg-primary-600 text-white border-0 text-base font-semibold shadow-lg"
             isLoading={isAdding}
           >
             {!variant

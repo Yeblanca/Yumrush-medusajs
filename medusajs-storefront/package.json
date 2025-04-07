@@ -53,6 +53,8 @@
   },
   "devDependencies": {
     "@babel/core": "^7.17.5",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-react": "^7.26.3",
     "@medusajs/client-types": "^0.2.2",
     "@medusajs/medusa": "^1.18.0",
     "@medusajs/ui-preset": "^1.0.2",
@@ -63,6 +65,7 @@
     "@types/react-instantsearch-dom": "^6.12.3",
     "autoprefixer": "^10.4.2",
     "babel-loader": "^8.2.3",
+    "babel-preset-next": "^1.4.0",
     "cypress": "^9.5.2",
     "eslint": "8.10.0",
     "eslint-config-next": "^13.4.5",
