@@ -12,9 +12,9 @@ import HeaderMain from "components/Header"
 // import Hero from "@modules/home/components/hero"
 
 export const metadata: Metadata = {
-  title: "Medusa Next.js Starter Template",
+  title: "Yum-Rush | Dulces Americanos a Domicilio en México",
   description:
-    "A performant frontend ecommerce starter template with Next.js 14 and Medusa.",
+    "En Yum-Rush encontrarás los mejores dulces americanos. Hacemos envíos rápidos desde Piedras Negras a todo México. ¡Satisfacemos tu antojo de dulces importados!",
 }
 
 const getCollectionsWithProducts = cache(
