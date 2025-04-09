@@ -61,16 +61,19 @@ const fileServicePlugin = cloudinaryConfigured
         upload_dir: 'uploads',
       },
     };
+console.log(process.env.SENDGRID_API_KEY);
+console.log(process.env.SENDGRID_FROM);
+console.log(process.env.SENDGRID_ORDER_PLACED_ID);
 
 const plugins = [
-  {
-    resolve: `medusa-plugin-sendgrid`,
-    options: {
-      api_key: process.env.SENDGRID_API_KEY,
-      from: process.env.SENDGRID_FROM,
-      order_placed_template: 'd-10abf51e747540fb83900cac8099348e',
-    },
-  },
+  // {
+  //   resolve: `medusa-plugin-sendgrid`,
+  //   options: {
+  //     api_key: process.env.SENDGRID_API_KEY,
+  //     from: process.env.SENDGRID_FROM,
+  //     order_placed_template: 'd-a5fc8f4e6a364b08b4369556783aea99',
+  //   },
+  // },
   `medusa-fulfillment-manual`,
   `medusa-payment-manual`,
   fileServicePlugin,

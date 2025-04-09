@@ -3,7 +3,7 @@ const nodefetch = require("node-fetch")
 let startTime = Date.now()
 
 const checkBackend = () => {
-  console.log("ESTA ES LA URL", process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL)
+  // console.log("ESTA ES LA URL", process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL)
   const url =
     (process.env.NEXT_PUBLIC_MEDUSA_BACKEND_URL || "http://localhost:9000") +
     "/store/product-categories?expand=category_children"
